@@ -1,6 +1,6 @@
 <?php
 return [
-    'app_id' => '2017101109250477',
+    'app_id' => '',
     //  包含http或https内容
     'notify_url' => '',
     //  可选参数RSA,RSA2
