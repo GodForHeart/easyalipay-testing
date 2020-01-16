@@ -6,7 +6,7 @@
 ## Installing
 
 ```shell
-$ composer require godforheart/easyalipay -vvv
+$ composer require godforheart/easyalipay-testing -vvv
 ```
 
 ## Usage
