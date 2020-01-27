@@ -1,5 +1,6 @@
 {
     "name": "godforheart/easyalipay",
+    "minimum-stability": "dev",
     "description": "支付宝SDK",
     "license": "MIT",
     "authors": [
@@ -25,6 +26,11 @@
         "files": [
             "src/Kernel/Helpers.php"
         ]
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
     },
     "require-dev": {
         "phpunit/phpunit": "^8.5"

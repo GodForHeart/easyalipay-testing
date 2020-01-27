@@ -31,7 +31,7 @@ class BaseClient
         $this->setHttpClient($this->app['http_client']);
     }
 
-    public function request(string $method, array $apiParams)
+    private function getSystemParams(string $method)
     {
         $sysParams["app_id"] = $this->app['config']['app_id'];
         $sysParams["version"] = "1.0";
@@ -41,7 +41,12 @@ class BaseClient
         $sysParams["timestamp"] = date("Y-m-d H:i:s");
         $sysParams["notify_url"] = $this->app['config']['notify_url'];
         $sysParams["charset"] = "UTF-8";
+        return $sysParams;
+    }
 
+    public function request(string $method, array $apiParams)
+    {
+        $sysParams = $this->getSystemParams($method);
 //        if ($authToken) {
 //            $sysParams["auth_token"] = $authToken;
 //        }
@@ -80,7 +85,7 @@ class BaseClient
         ];
 //var_dump($requestUri, $options);exit;
         $content = $this->httpRequest($requestUri, 'POST', $options);
-        var_dump($content->getHeaders());exit;
+
         $content = $content->getBody()->getContents();
 
         $content = \preg_replace('/[\x00-\x1F\x80-\x9F]/u', '', $content);
